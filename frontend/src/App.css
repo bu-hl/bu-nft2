@@ -1,0 +1,288 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #e94560, #533483);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: #888;
+  margin-top: 10px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* 지갑 섹션 */
+.wallet-section {
+  width: 100%;
+  max-width: 400px;
+}
+
+.connect-btn {
+  width: 100%;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #e94560, #533483);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(233, 69, 96, 0.4);
+}
+
+.connected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-family: monospace;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #4ade80;
+  border-radius: 50%;
+}
+
+/* 정보 섹션 */
+.info-section {
+  display: flex;
+  gap: 20px;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-card .label {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.info-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e94560;
+}
+
+/* 민팅 섹션 */
+.mint-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.mint-btn {
+  padding: 20px 60px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #e94560, #533483);
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mint-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+}
+
+.mint-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.message {
+  color: #f1c40f;
+  font-size: 0.95rem;
+}
+
+/* NFT 섹션 */
+.nft-section {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.nft-section h2 {
+  color: #e94560;
+  margin: 0;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  color: #888;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-tab:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.filter-tab.active {
+  background: linear-gradient(90deg, #e94560, #533483);
+  color: #fff;
+  border-color: transparent;
+}
+
+.filter-tab:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loading-text,
+.empty-text {
+  color: #888;
+  padding: 40px;
+}
+
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.nft-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s;
+}
+
+.nft-card:hover {
+  transform: translateY(-5px);
+}
+
+.nft-image {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #533483, #e94560);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.nft-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nft-card p {
+  margin-top: 10px;
+  color: #888;
+}
+
+.nft-card.owned {
+  border-color: #e94560;
+  box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
+}
+
+.owner-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #e94560, #533483);
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .info-section {
+    flex-direction: column;
+  }
+
+  .mint-btn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+  }
+}

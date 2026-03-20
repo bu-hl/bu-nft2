@@ -1,0 +1,42 @@
+{
+  "name": "nft-1",
+  "version": "1.0.0",
+  "description": "RevealNFT Contract",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:hoodi": "hardhat run scripts/deploy.js --network hoodi",
+    "node": "hardhat node",
+    "node:stop": "lsof -ti:8545 | xargs kill -9 2>/dev/null || echo 'No node running'",
+    "mint": "hardhat run scripts/mint.js --network localhost",
+    "mint:hoodi": "hardhat run scripts/mint.js --network hoodi",
+    "set-uri": "hardhat run scripts/setBaseURI.js --network localhost",
+    "set-uri:hoodi": "hardhat run scripts/setBaseURI.js --network hoodi",
+    "reveal": "hardhat run scripts/reveal.js --network localhost",
+    "reveal:hoodi": "hardhat run scripts/reveal.js --network hoodi",
+    "wallet": "node scripts/wallet.js",
+    "address": "node scripts/privateKeyToAddress.js",
+    "balance": "node scripts/checkEthBalance.js",
+    "metadata": "node scripts/generateMetadata.js",
+    "images": "node scripts/generateCharacterImages.js",
+    "upload": "node scripts/uploadToS3.js output",
+    "upload:metadata": "node scripts/uploadToS3.js output \"\" hidden",
+    "upload:hidden": "node scripts/uploadToS3.js output/hidden hidden",
+    "generate": "node scripts/generate.js",
+    "generate:samples": "node scripts/createSampleLayers.js",
+    "generate:hidden": "node scripts/createHiddenImage.js",
+    "dapp:install": "cd frontend && npm install",
+    "dapp:dev": "cd frontend && npm run dev",
+    "dapp:build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.4"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.888.0",
+    "@openzeppelin/contracts": "^5.0.1",
+    "dotenv": "^16.4.0",
+    "sharp": "^0.34.5"
+  }
+}

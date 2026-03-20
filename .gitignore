@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Hardhat
+cache/
+artifacts/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.aws/
+.local/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+coverage.json
+
+# TypeChain
+typechain/
+typechain-types/
+
+# Logs
+*.log
+npm-debug.log*
+
+images/generated/
+metadata/generated/
+
+frontend/node_modules/
+frontend/dist/
+
+output/
+
+layers/
