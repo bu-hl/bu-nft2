@@ -1,16 +1,74 @@
-# React + Vite
+# RevealNFT Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RevealNFT 컨트랙트와 연동되는 React 프론트엔드입니다.
 
-Currently, two official plugins are available:
+## 기능
+qofpqks
+- 전체 NFT 갤러리 조회
+- 내 NFT 필터링
+- NFT 민팅 (리빌 전까지만)
+- 메타데이터에서 이미지 로드
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 개발 환경 실행
 
-## React Compiler
+### 1. 의존성 설치
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+### 2. 환경변수 설정
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+cp .env.example .env
+```
+
+`.env` 설정:
+
+```bash
+VITE_RPC_URL=https://rpc.hoodi.ethpandaops.io
+VITE_NFT_CONTRACT_ADDRESS=0x...
+```
+
+### 3. 개발 서버 실행
+
+```bash
+npm run dev
+```
+
+접속: http://localhost:5173
+
+## Docker 배포
+
+### 빌드
+
+```bash
+docker build \
+  --build-arg VITE_RPC_URL=https://rpc.hoodi.ethpandaops.io \
+  --build-arg VITE_NFT_CONTRACT_ADDRESS=0x... \
+  -t reveal-nft-frontend .
+```
+
+### 실행
+
+```bash
+docker run -p 3000:80 reveal-nft-frontend
+```
+
+접속: http://localhost:3000
+
+### 환경변수
+
+| 변수 | 설명 |
+|------|------|
+| `VITE_RPC_URL` | RPC 엔드포인트 URL |
+| `VITE_NFT_CONTRACT_ADDRESS` | 배포된 컨트랙트 주소 |
+
+> Vite는 빌드 시점에 환경변수를 임베딩합니다. Docker 빌드 시 `--build-arg`로 전달해야 합니다.
+
+## 기술 스택
+
+- React 18
+- Vite
+- ethers.js v6
+- Nginx (Docker)
